@@ -1,0 +1,21 @@
+////////////////////////////-- fractol --\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Please get to program at least one parameter (choose one):
+ >>|1: For Mandelbrot's fractal     |<<
+ >>|2: For Julia's fractal          |<<
+ >>|3: For Newton's Pool's fractal  |<<
+ >>|4: For Maldebar's fractal       |<<
+ >>|5: For Burning ship fractal     |<<
+ >>|6: For Celtic Maldebrot fractal |<<
+
+Next parameters are not mandatory (in any sequence):
+x*  - WIDTH of window ('*' - int value, x600 - minimum width, x2000 - max)
+y*  - HEIGHT of window ('*' - int value, y400 - minimum height, x2000 - max)
+w*  - width of enabled area ('*' - double value. w2 - is recommended for start)
+i*  - COUNT of iterations ('*' - int value, i20 - minimum)
+px* - coordinate X of center enabled area ('*' - double value)
+py* - coordinate Y of center enabled area ('*' - double value)
+cx* - coordinate X of center Julia's fractal('*' - double value)
+cy* - coordinate Y of center Julia's fractal('*' - double value)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////////////////////////////
