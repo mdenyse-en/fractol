@@ -6,7 +6,7 @@ school21 project, but in was modified after defence. Now it don't meet the NORM.
     <td style="width:200px">
      Hope
     </td>
-    <td>
+    <td style="width:400px">
     <img src = https://github.com/mdenyse-en/screenshots/blob/master/Fracto_main_window.png>
     </td>
     <td style="width:200px">
