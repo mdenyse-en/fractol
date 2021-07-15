@@ -15,4 +15,5 @@ school21 project, but in was modified after defence. Now it don't meet the NORM.
   </tr>
 </table>
 
-![Program window](https://github.com/mdenyse-en/screenshots/blob/master/Fracto_main_window.png)
+Example      ![Program window](https://github.com/mdenyse-en/screenshots/blob/master/Fracto_main_window.png)  Example
+Example
