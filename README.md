@@ -1,7 +1,7 @@
 # fractol
 school21 project, but in was modified after defence. Now it don't meet the NORM.
 
-<table cellpadding="0" cellspacing="0" width="100%" height="100%">
+<table cellpadding="2" cellspacing="2" width="100%" height="100%">
   <tr>
     <td width=200px>
      Hope
