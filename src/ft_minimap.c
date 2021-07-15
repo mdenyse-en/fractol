@@ -12,6 +12,8 @@ static t_win	init_win_mini(t_win win)
 	w1.num = MAPNUM;
 	w1.jx = win.jx;
 	w1.jy = win.jy;
+	w1.color = win.color;
+	w1.c_count = w1.c_count;
 	return (w1);
 }
 
@@ -71,13 +73,13 @@ void	ft_draw_mini(int x, int y, t_win *win)
 	double	hm;
 	t_comp	tmp;
 
-	wm = (double)win->w / W * MW;
-	hm = (double)(win->w) / W * MH * win->height / win->width;
+	wm = (double)(win->w) / W * MW;
+	hm = (double)(win->w) / W * MH;
 	if (wm < 10)
 	{
-		wm = 10;
-		hm = (double)win->height / win->width;
-		hm = hm * 10;
+		wm = 8;
+		hm = (double)MH / MW;
+		hm = hm * 8;
 	}
 	else if (wm > MW || hm > MH)
 	{
@@ -110,5 +112,5 @@ void	ft_draw_minimap(int i, int j, t_win *win)
 		win->img.data[j * win->width + i] = get_trgb(0, 20, 20, 20);
 	}
 	else
-		win->img.data[j * win->width + i] = get_trgb(0, 150, 150, 150);
+		win->img.data[j * win->width + i] = get_trgb(0, 150, 150, 150); //get_c_by_d(d, MAPNUM, win->color, win->c_count); you can use this function to repeate main window color to minimap
 }

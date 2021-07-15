@@ -13,8 +13,8 @@ void	get_win_size(char **argv, t_win *win, int i)
 	if (argv[i][0] == 'y' && ft_isdigit(argv[i][1]))
 	{
 		win->w_height = ft_atoi(argv[i] + 1);
-		if (win->w_height < 300)
-			win->w_height = 300;
+		if (win->w_height < 400)
+			win->w_height = 400;
 		if (win->w_height > 1300)
 			win->w_height = 1300;
 	}
@@ -78,6 +78,8 @@ int	parc_param(int argc, char **argv, t_win *win)
 	win->w = W;
 	win->num = NUM;
 	win->h_key = 0;
+	win->move_key.key_push = 0;
+	win->z_ch_n_key = 1;
 	win->jx = 0.28;
 	win->jy = 0.008;
 	win->color = 1;
@@ -87,5 +89,15 @@ int	parc_param(int argc, char **argv, t_win *win)
 	get_further_par(argc, argv, win);
 	win->width = win->w_width - INTX;
 	win->height = win->w_height - INTY;
+
+	//creat massive of threads in main struct
+	int i = -1;
+	win->threads = (t_threads *)malloc(THREADS_COUNT * sizeof(t_threads));
+	while (++i < THREADS_COUNT)
+	{
+		win->threads[i].id = i + 1;
+		win->threads[i].win = win;
+	}
+
 	return (1);
 }

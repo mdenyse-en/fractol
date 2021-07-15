@@ -1,5 +1,16 @@
 #include "fractol.h"
 
+int		ft_mouse_wheel(int key, int x, int y, t_win *win)
+{
+	(void)win;
+	(void)x;
+	(void)y;
+
+	if (key == 3)
+		win->move_key.key_push = 0;
+	return (1);
+}
+
 void	move_to_mmap(int x, int y, t_win *win)
 {
 	t_win	w1;
@@ -33,6 +44,8 @@ int	get_mouse_2(int key, int x, int y, t_win *win)
 		win->px = (win->w * 0.5) - (double)x / win->width * win->w + win->px;
 		win->py = win->py - ((win->w * 0.5 * win->height / win->width)
 			- (double)(y - INTY) * win->w / win->width);
+		if (win->z_ch_n_key)
+			win->num = win->num + 2;
 	}
 	else if (key == 5 && y > INTY)
 	{
@@ -42,6 +55,8 @@ int	get_mouse_2(int key, int x, int y, t_win *win)
 		win->px = (win->w * 0.5) - (double)x / win->width * win->w + win->px;
 		win->py = win->py - ((win->w * 0.5 * win->height / win->width)
 			- (double)(y - INTY) * win->w / win->width);
+		if (win->num > 21 && win->z_ch_n_key)
+			win->num = win->num - 2;
 	}
 	else
 		return (0);
@@ -62,6 +77,14 @@ int	get_mouse(int key, int x, int y, t_win *win)
 		else if (x > MAPX && x < MAPX + MW && y > MAPY && y < MAPY + MH)
 			move_to_mmap(x, y, win);
 	}
+	else if (key == 3 && win->move_key.key_push == 0)
+	{
+		win->move_key.key_push = 1;
+		win->move_key.x = x;
+		win->move_key.y = y;
+	}
+	/*else if (key == 3 && win->move_key.key_push == 1)
+		win->move_key.key_push = 0;*/
 	else if (!get_mouse_2(key, x, y, win))
 		return (0);
 	draw_f(0, win);
@@ -76,13 +99,21 @@ int	move_mouse(int x, int y, t_win *win)
 	{
 		if (y > INTY)
 		{
+			if (win->move_key.key_push)
+			{
+				win->px = win->px - (double)(x - win->move_key.x) * win->w / win->width;
+				win->py = win->py + (double)(y - win->move_key.y) * win->w / win->width;
+				win->move_key.x = x;
+				win->move_key.y = y;
+				draw_f(0, win);
+			}
 			draw_int(win);
 			mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
 			s = ft_dtoa(find_cx(x, *win), 5);
-			mlx_string_put(win->mlx, win->win, 420, 20, 0, s);
+			mlx_string_put(win->mlx, win->win, AFTER_MINIMAP, 20, 0, s);
 			free (s);
 			s = ft_dtoa(find_cy(y - INTY, *win), 5);
-			mlx_string_put(win->mlx, win->win, 420, 30, 0, s);
+			mlx_string_put(win->mlx, win->win, AFTER_MINIMAP, 30, 0, s);
 			free(s);
 			ft_print_data(win);
 		}

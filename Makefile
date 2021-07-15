@@ -1,6 +1,6 @@
 NAME	= fractol
 
-SORCES	= ft_hints.c fractol.c ft_parc_param.c ft_get_fact.c ft_colors.c ft_interface.c ft_keyboard.c ft_minimap.c ft_mouse.c ft_get_fact_other.c
+SORCES	= ft_utils.c ft_threads.c ft_hints.c fractol.c ft_parc_param.c ft_get_fact.c ft_colors.c ft_interface.c ft_keyboard.c ft_minimap.c ft_mouse.c ft_get_fact_other.c
 
 DIRS	= ./src
 

@@ -5,6 +5,7 @@ int	get_trgb(int t, int r, int g, int b)
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
+//function find parameter "d" for each pixel of the window. Thшt parameter displays the proximity to the fractal area
 void	get_d(t_win *win, int i, int j, int d)
 {
 	int	x;
@@ -29,39 +30,39 @@ void	get_d(t_win *win, int i, int j, int d)
 				d = find_d_b_ship (find_cx (x, *win), find_cy (y, *win), *win);
 			else if (win->type_f == 6)
 				d = find_d_c_mald (find_cx (x, *win), find_cy (y, *win), *win);
-			win->img.data[j * win->w_width + i] = d;
+			win->img.data[j * win->w_width + i] = get_c_by_d(d, win->num, win->color, win->c_count);
 		}
 	}
 }
 
 int	get_color(int i, double tmp)
 {
-	// if (i == 0)
-	// 	return (get_trgb (0, 255 - 250 * tmp, 255 - 200 * tmp, 100 - 50 * tmp));
-	// else if (i == 1)
-	// 	return (get_trgb (0, 5 + 230 * tmp, 55 + 100 * tmp, 50 + 50 * tmp));
-	// else if (i == 2)
-	// 	return (get_trgb (0, 235 + 15 * tmp, 155 + 75 * tmp, 100 + 155 * tmp));
-	// else if (i == 3)
-	// 	return (get_trgb (0, 250 - 250 * tmp, 230 - 80 * tmp, 255 - 55 * tmp));
-	// else if (i == 4)
-	// 	return (get_trgb (0, 0 + 200 * tmp, 150 - 50 * tmp, 200 + 55 * tmp));
-	// else if (i == 5)
-	// 	return (get_trgb (0, 200 + 55 * tmp, 100 + 100 * tmp, 255 - 55 * tmp));
-	// else if (i == 6)
-	// 	return (get_trgb (0, 255 - 155 * tmp, 200 + 55 * tmp, 200 - 100 * tmp));
-	// else if (i == 7)
-	// 	return (get_trgb (0, 50 + 100 * tmp, 255 - 155 * tmp, 100 - 100 * tmp));
-	// else if (i == 8)
-	// 	return (get_trgb (0, 150 + 100 * tmp, 100 + 100 * tmp, 0 + 100 * tmp));
-	// else if (i == 9)
-	// 	return (get_trgb (0, 250 + 0 * tmp, 200 + 50 * tmp, 100 + 0 * tmp));
-	// else if (i == 10)
-	// 	return (get_trgb
-	// 		(0, 255 - 250 * tmp, 255 - 255 * tmp, 100 - 100 * tmp));
-	// else
-	// 	return (get_trgb (0, 0, 0, 0));
 	if (i == 0)
+		return (get_trgb (0, 255 - 250 * tmp, 255 - 200 * tmp, 100 - 50 * tmp));
+	else if (i == 1)
+		return (get_trgb (0, 5 + 230 * tmp, 55 + 100 * tmp, 50 + 50 * tmp));
+	else if (i == 2)
+		return (get_trgb (0, 235 + 15 * tmp, 155 + 75 * tmp, 100 + 155 * tmp));
+	else if (i == 3)
+		return (get_trgb (0, 250 - 250 * tmp, 230 - 80 * tmp, 255 - 55 * tmp));
+	else if (i == 4)
+		return (get_trgb (0, 0 + 200 * tmp, 150 - 50 * tmp, 200 + 55 * tmp));
+	else if (i == 5)
+		return (get_trgb (0, 200 + 55 * tmp, 100 + 100 * tmp, 255 - 55 * tmp));
+	else if (i == 6)
+		return (get_trgb (0, 255 - 155 * tmp, 200 + 55 * tmp, 200 - 100 * tmp));
+	else if (i == 7)
+		return (get_trgb (0, 50 + 100 * tmp, 255 - 155 * tmp, 100 - 100 * tmp));
+	else if (i == 8)
+		return (get_trgb (0, 150 + 100 * tmp, 100 + 100 * tmp, 0 + 100 * tmp));
+	else if (i == 9)
+		return (get_trgb (0, 250 + 0 * tmp, 200 + 50 * tmp, 100 + 0 * tmp));
+	else if (i == 10)
+		return (get_trgb
+			(0, 255 - 250 * tmp, 255 - 255 * tmp, 100 - 100 * tmp));
+	else
+		return (get_trgb (0, 0, 0, 0));
+	/*if (i == 0)
 		return (get_trgb (0, 0 + 250 * tmp * tmp, 0 + 200 * tmp * tmp, 50 + 200 * tmp));
 	else if (i == 1)
 		return (get_trgb (0, 250 - 230 * tmp * tmp, 200 - 100 * tmp * tmp, 250 - 50 * tmp));
@@ -74,13 +75,15 @@ int	get_color(int i, double tmp)
 	else if (i == 5)
 		return (get_trgb (0, 200 + 55 * tmp * tmp, 0+ 100 * tmp, 250 - 150 * tmp));
 	else
-		return (get_trgb (0, 0, 0, 0));
+		return (get_trgb (0, 0, 0, 0));*/
 }
 
 int	get_c_by_d(int d, int num, int c, int c_count)
 {
 	double	tmp;
 	int		i;
+
+	d = ((double)d / num) * ((double)d / num) * num; //try to do more beautiful
 
 	tmp = -1;
 	if (d == num)

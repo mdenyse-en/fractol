@@ -22,7 +22,7 @@ int	get_keyboard_5(int key, t_win *win)
 int	get_keyboard_4(int key, t_win *win)
 {
 	if (key == 15)
-		win->w = W;
+		ft_return_base(win);
 	else if (key == 33)
 		win->jx = win->jx - 0.002;
 	else if (key == 30)
@@ -93,12 +93,15 @@ int	get_keyboard_2(int key, t_win *win)
 
 int	get_keyboard(int key, t_win *win)
 {
+	//ft_putnbr_fd(key, 1);
 	if (key == 53)
 		exit(0);
 	if ((key == 0 || win->h_key) && (key != 4))
 		return (0);
 	if (win->h_key && key == 4)
 		win->h_key = 0;
+	else if (key == 8)
+		win->z_ch_n_key = !(win->z_ch_n_key);
 	else if (key == 123)
 		win->px = win->px - win->w * 0.02;
 	else if (key == 124)
@@ -111,7 +114,7 @@ int	get_keyboard(int key, t_win *win)
 		win->w = win->w * 0.5;
 	else if (key == 27)
 		win->w = win->w * 2;
-	else if (key == 69)
+	else if (key == 69 && win->num < 10000000)
 		win->num = win->num * 1.5;
 	else if (!get_keyboard_2(key, win))
 		return (0);

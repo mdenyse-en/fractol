@@ -21,13 +21,15 @@ void	print_hint(t_win *win, int i, int j)
 			win->img.data[j * win->w_width + i] = 0;
 	}
 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
-	j = win->w_height / 2 - 200;
-	i = win->w_width / 2 - 150;
+	j = win->w_height / 2 - 100;
+	i = win->w_width / 2 - 180;
 	put_hints(win, i, j);
 }
 
 void	put_hints(t_win *win, int i, int j)
 {
+	mlx_string_put(win->mlx, win->win, i + 140, j - 20,
+		0xCCCCCC, "HELP");
 	mlx_string_put(win->mlx, win->win, i, j,
 		0xCCCCCC, "1, 2, 3, 4, 5, 6    - Show fractals");
 	mlx_string_put(win->mlx, win->win, i, j + 20,
@@ -41,11 +43,17 @@ void	put_hints(t_win *win, int i, int j)
 	mlx_string_put(win->mlx, win->win, i, j + 100, 0xCCCCCC,
 		"R                   - Return w to base parameters");
 	mlx_string_put(win->mlx, win->win, i, j + 120, 0xCCCCCC,
-		"Mouse will          - Zoom (on mouse position)");
+		"Mouse will (Scroll) - Zoom (on mouse position)");
 	mlx_string_put(win->mlx, win->win, i, j + 140, 0xCCCCCC,
-		"Mouse left button   - Move on mouse position");
+		"Mouse will (Press)  - Move by mouse (press again to cancel)");
 	mlx_string_put(win->mlx, win->win, i, j + 160, 0xCCCCCC,
-		"Arrows              - Move left, right, up, down");
+		"Mouse left button   - Move on mouse position");
 	mlx_string_put(win->mlx, win->win, i, j + 180, 0xCCCCCC,
+		"Arrows              - Move left, right, up, down");
+	mlx_string_put(win->mlx, win->win, i, j + 200, 0xCCCCCC,
 		"Another arrows      - Change color");
+	mlx_string_put(win->mlx, win->win, i, j + 220, 0xCCCCCC,
+		"C                   - (ON/OFF) iterations when zooming");
+	mlx_string_put(win->mlx, win->win, i + 100, j + 240,
+		0xCCCCCC, "(press 'H' to close)");
 }
