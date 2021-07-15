@@ -3,13 +3,13 @@ school21 project, but in was modified after defence. Now it don't meet the NORM.
 
 <table cellpadding="0" cellspacing="0" width="100%" height="100%">
   <tr>
-    <td width=500px>
+    <td width=300px>
      Hope
     </td>
-    <td style="width:400px">
+    <td style="width:300px">
     <img src = https://github.com/mdenyse-en/screenshots/blob/master/Fracto_main_window.png>
     </td>
-    <td style="width:200px">
+    <td style="width:300px">
      sflsdfj
     </td>
   </tr>
