@@ -3,21 +3,16 @@ school21 project, but in was modified after defence. Now it don't meet the NORM.
 
 <table cellpadding="2" cellspacing="2" width="100%" height="100%">
   <tr>
-    <td width=200px>
-     Hope
-    </td>
+    <td width=200px> Hope </td>
+    <td width=200px> Hope2</td>
+  </tr>
+  <tr>
     <td>
-      <tr height=100px>
-        minimap 
-        bottom
-      </tr>
-      <tr>
-         <img src = https://github.com/mdenyse-en/screenshots/blob/master/Fracto_main_window.png>
-      </tr>
+         <img src=https://github.com/mdenyse-en/screenshots/blob/master/Fracto_main_window.png>
     </td>
-    <td width=200px>
-     sflsdfj
-    </td>
+  </tr>
+  <tr
+    <td width=200px> sflsdfj</td>
   </tr>
 </table>
 
