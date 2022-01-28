@@ -29,6 +29,7 @@ RM		= rm -f
 
 $(NAME):	$(OBJ) $(HEAD)
 	$(MAKE) -C $(DIRL)
+	$(MAKE) -C $(DIRM)
 	$(CC) $(CFLAG) $(LIB) $(MLX) $(SRC) -L. -Lmlx -lmlx -framework OpenGL -framework AppKit -o fractol
 
 	@echo $(NAME) is compiled!
@@ -36,11 +37,13 @@ $(NAME):	$(OBJ) $(HEAD)
 all: $(NAME)
 
 clean:
-	$(MAKE) clean -C $(DIRL)	
+	$(MAKE) clean -C $(DIRL)
+	$(MAKE) clean -C $(DIRM)
 	$(RM) $(OBJ)
 
 fclean: clean
 	$(MAKE) fclean -C $(DIRL)
+	$(MAKE) clean -C $(DIRM)
 	$(RM) $(NAME)
 
 re: fclean all
