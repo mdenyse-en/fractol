@@ -35,7 +35,7 @@ void	put_hints(t_win *win, int i, int j)
 	mlx_string_put(win->mlx, win->win, i, j + 20,
 		0xCCCCCC, "-/+                 - Zoom (on center)");
 	mlx_string_put(win->mlx, win->win, i, j + 40, 0xCCCCCC,
-		"-/+ (numpad)        - Change count of interations");
+		",/.                 - Change count of interations");
 	mlx_string_put(win->mlx, win->win, i, j + 60, 0xCCCCCC,
 		"[, ]                - Change real (for Julia's set)");
 	mlx_string_put(win->mlx, win->win, i, j + 80, 0xCCCCCC,
@@ -51,7 +51,7 @@ void	put_hints(t_win *win, int i, int j)
 	mlx_string_put(win->mlx, win->win, i, j + 180, 0xCCCCCC,
 		"Arrows              - Move left, right, up, down");
 	mlx_string_put(win->mlx, win->win, i, j + 200, 0xCCCCCC,
-		"Another arrows      - Change color");
+		"0, 9                - Change gradient");
 	mlx_string_put(win->mlx, win->win, i, j + 220, 0xCCCCCC,
 		"C                   - (ON/OFF) iterations when zooming");
 	mlx_string_put(win->mlx, win->win, i + 100, j + 240,

@@ -12,8 +12,8 @@
 # include <stdio.h>
 # include <pthread.h>
 
-# define WIDTH 1200
-# define HEGHT 1000
+# define WIDTH 800
+# define HEGHT 600
 # define W 4
 # define NUM 40
 # define PX -0.5

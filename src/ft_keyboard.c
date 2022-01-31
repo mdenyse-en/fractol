@@ -42,7 +42,7 @@ int	get_keyboard_4(int key, t_win *win)
 
 int	get_keyboard_3(int key, t_win *win)
 {
-	if (key == 121)
+	if (key == 47)
 	{
 		if (win->color > 1 + win->c_count)
 			win->color--;
@@ -68,12 +68,12 @@ int	get_keyboard_3(int key, t_win *win)
 
 int	get_keyboard_2(int key, t_win *win)
 {
-	if (key == 78 && win->num > 10)
+	if (key == 25 && win->num > 10)
 	{
 		if (win->num > COLORS_MAX * 2)
 			win->num = win->num / 1.5;
 	}
-	else if (key == 116)
+	else if (key == 43)
 	{
 		if (win->color < COLORS_MAX - win->c_count)
 			win->color++;
@@ -93,7 +93,7 @@ int	get_keyboard_2(int key, t_win *win)
 
 int	get_keyboard(int key, t_win *win)
 {
-	//ft_putnbr_fd(key, 1);
+	ft_putnbr_fd(key, 1);
 	if (key == 53)
 		exit(0);
 	if ((key == 0 || win->h_key) && (key != 4))
@@ -114,7 +114,7 @@ int	get_keyboard(int key, t_win *win)
 		win->w = win->w * 0.5;
 	else if (key == 27)
 		win->w = win->w * 2;
-	else if (key == 69 && win->num < 10000000)
+	else if (key == 29 && win->num < 10000000)
 		win->num = win->num * 1.5;
 	else if (!get_keyboard_2(key, win))
 		return (0);
