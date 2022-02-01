@@ -37,7 +37,7 @@ Another parameters (optional,** [parameter][value]**):
 
 ### There is a description of main window:
 
->![Main window](https://github.com/mdenyse-en/screenshots/blob/master/fractol-interface_information_min.png)
+>![Main window](https://github.com/mdenyse-en/screenshots/blob/master/fractol-interface_information_min1.png)
 
 ### Control buttons:
 - **1**,**2**,**3**,**4**,**5**,**6** - Display another type of fractal
